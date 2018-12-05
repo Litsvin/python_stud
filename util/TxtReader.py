@@ -5,6 +5,7 @@ class TxtReader(IReader):
 
     @staticmethod
     def read(path_to_file):
+        print('Will open ' + path_to_file)
         file = open(path_to_file, "r")
         str_list = []
         while True:

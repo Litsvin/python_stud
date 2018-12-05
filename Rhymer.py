@@ -21,8 +21,7 @@ class Rhymer:
         file = TxtReader.read(file_path)
         rhyme_list = []
         counter = 0
-        while True:
-            line = file.readline()
+        for line in file:
             if Rhymer.is_rhyme(line, word):
                 rhyme_list.append(line)
             if not line:
@@ -34,7 +33,8 @@ class Rhymer:
         if rhyme_list.__len__() == 0:
             raise Exception('Can\'t find a rhyme for "%s"' % word)
         print('List of rhymes to "%s": ' % word)
-        print(rhyme_list)
+        for rhyme in rhyme_list:
+            print(rhyme.rstrip())
         return rhyme_list
 
 
