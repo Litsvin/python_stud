@@ -1,6 +1,7 @@
 from interface.IReader import IReader
 
 
+@DeprecationWarning  # move to one common Reader
 class TxtReader(IReader):
 
     @staticmethod
@@ -15,6 +16,5 @@ class TxtReader(IReader):
                 print('End of file')
                 break
         return str_list
-
 
 # print(TxtReader.read("../10k.txt"))
