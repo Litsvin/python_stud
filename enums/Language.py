@@ -1,5 +1,7 @@
 from enum import Enum
 
+from CustomExceptions import UnsupportedOperationException
+
 
 class Runtime(object):
     def __init__(self, name, extention):
@@ -22,3 +24,10 @@ class Language(Enum):
     @staticmethod
     def values():
         return [r.value for r in Language]
+
+    @staticmethod
+    def define_by_extention(ext):
+        for lang in Language.values():
+            if lang.extention == ext:
+                return lang
+        raise UnsupportedOperationException("Can't define programming language by provided file extention: " + ext)

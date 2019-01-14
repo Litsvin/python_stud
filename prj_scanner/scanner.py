@@ -1,6 +1,6 @@
 from os import walk
 
-from enums.Language import Language, Runtime
+from enums.Language import Language
 from models.AppInfo import AppInfo
 
 
@@ -19,26 +19,23 @@ def detect_app_info(url):
                 extensions.append(item.split('.')[-1])
         extensions = set(extensions)
         print(extensions)
-    app_info.runtime = define_runtime(extensions)
+    app_info.runtime = define_runtimes(extensions)
 
     return app_info
 
 
-def define_runtime(extensions):
-    lang_list = []
-    for lang in Language.values():
-        for ext in extensions:
-            if ext == Runtime.extention:
-                lang_list.append()
-    # for ext in extensions: lang. in Language.values()
+def define_runtimes(actual_extensions):
+    supported_extentions = []
+    langs = Language.values()
+    for lang in langs:
+        supported_extentions.append(lang.extention)
 
-
-
-
-    for ext in extensions:
-        if ext in Language.values():
-            lang_list.append(ext)
-    return lang_list
+    langs = []
+    for ext in actual_extensions:
+        if ext in supported_extentions:
+            langs.append(Language.define_by_extention(ext).name)
+    print('Detected runtimes: ' + langs.__str__())
+    return langs
 
 
 def scan_folder(path):
