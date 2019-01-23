@@ -1,7 +1,7 @@
 from models.feature import Feature
 from models.geometry import Geometry
 from models.point import Point
-from util.reader import Reader
+from util.reader import read_txt
 
 
 def parse_features_collection_json():
@@ -9,7 +9,7 @@ def parse_features_collection_json():
     path_to_file = '/Users/akratovich/projects/python/sf-city-lots-json/citylots.json'
     parsed_features = []
 
-    features_collection = Reader.read_json(path_to_file)
+    features_collection = read_txt(path_to_file)
 
     for feature_item in features_collection['features']:
         tmp_coord_list = __get_points(feature_item)

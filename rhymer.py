@@ -1,6 +1,6 @@
 import pronouncing
 
-from util.txt_reader import TxtReader
+from util.reader import Reader
 
 
 class Rhymer:

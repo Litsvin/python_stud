@@ -1,3 +1,29 @@
+class FrameworkInstance(object):
+
+    def __init__(self, fr_name, fr_type, desc):
+        self.fr_name = fr_name
+        self.fr_type = fr_type
+        self.desc = desc
+
+    def __str__(self):
+        return 'Framework: name = {0}, type = {1}, description = {2}'.format(self.fr_name, self.fr_type, self.desc)
+
+
+class AppInfo2(object):
+
+    def __init__(self, name, langs, frameworks, test_frameworks, build_tool, build_cmd, run_cmd):
+        self.name = name
+        self.langs = langs
+        self.frameworks = frameworks
+        self.test_frameworks = test_frameworks
+        self.build_tool = build_tool
+        self.build_cmd = build_cmd
+        self.run_cmd = run_cmd
+
+    def __init__(self):
+        pass
+
+
 class AppInfo(object):
 
     def __init__(self, name, app_components, build_info):

@@ -1,5 +1,5 @@
-from xml.etree import ElementTree as ET
 from pprint import pprint
+from xml.etree import ElementTree as ET
 
 doc = ET.parse('nasa.xml')
 root = doc.getroot()
@@ -10,6 +10,6 @@ root = doc.getroot()
 # pprint(['{0} {1}'.format(author[0].text, author[1].text) for author in authors])
 
 name = 'Spencer'
-spencer = root.find(".//lastName[.='%s']/../../../../../../" % name)
+spencer = root.find(".//lastName[.='%s']/ancestor::dataset/subject" % name)
 
-
+pprint(spencer.text)
